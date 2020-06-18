@@ -19,8 +19,9 @@
 #endif // OM_PLATFORM_WINDOWS
 
 // Common
+using std::function;
 using std::string;
 using std::stringstream;
 using std::shared_ptr;
 using std::unique_ptr;
-using std::function;
+using std::vector;

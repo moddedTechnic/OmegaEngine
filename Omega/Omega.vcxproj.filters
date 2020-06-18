@@ -10,6 +10,12 @@
     <Filter Include="Omega\Maths">
       <UniqueIdentifier>{7AC3366D-E678-AF62-6F6D-A939DB21A666}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Omega.h" />
@@ -20,6 +26,9 @@
       <Filter>Omega</Filter>
     </ClInclude>
     <ClInclude Include="src\Omega\EntryPoint.h">
+      <Filter>Omega</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\Events.h">
       <Filter>Omega</Filter>
     </ClInclude>
     <ClInclude Include="src\Omega\Events\ApplicationEvent.h">
@@ -34,25 +43,42 @@
     <ClInclude Include="src\Omega\Events\MouseEvent.h">
       <Filter>Omega\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Omega\Layer.h">
+      <Filter>Omega</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\LayerStack.h">
+      <Filter>Omega</Filter>
+    </ClInclude>
     <ClInclude Include="src\Omega\Log.h">
       <Filter>Omega</Filter>
     </ClInclude>
     <ClInclude Include="src\Omega\Maths\Vector2.h">
       <Filter>Omega\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="src\Omega\Window.h">
+      <Filter>Omega</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\ompch.h" />
-    <ClInclude Include="src\Omega\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\Omega\Events.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Omega\Application.cpp">
       <Filter>Omega</Filter>
     </ClCompile>
+    <ClCompile Include="src\Omega\Layer.cpp">
+      <Filter>Omega</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Omega\LayerStack.cpp">
+      <Filter>Omega</Filter>
+    </ClCompile>
     <ClCompile Include="src\Omega\Log.cpp">
       <Filter>Omega</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\ompch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 // For use by Omega applications
 
 #include "Omega/Application.h"
+#include "Omega/Layer.h"
 #include "Omega/Log.h"
 
 // Maths
