@@ -1,2 +1,3 @@
 # OmegaEngine
-Omega game Engine
+
+A game engine built in C++ based on TheCherno's Hazel series
