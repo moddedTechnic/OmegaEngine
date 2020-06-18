@@ -4,6 +4,12 @@
     <Filter Include="Omega">
       <UniqueIdentifier>{8E10D20D-FA24-FABE-C3A6-9D1E2F7AF6EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Omega\Events">
+      <UniqueIdentifier>{B2D0D902-9E33-69A7-47B9-A15D33FB342A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Omega\Maths">
+      <UniqueIdentifier>{7AC3366D-E678-AF62-6F6D-A939DB21A666}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Omega.h" />
@@ -16,8 +22,23 @@
     <ClInclude Include="src\Omega\EntryPoint.h">
       <Filter>Omega</Filter>
     </ClInclude>
+    <ClInclude Include="src\Omega\Events\ApplicationEvent.h">
+      <Filter>Omega\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\Events\Event.h">
+      <Filter>Omega\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\Events\KeyEvent.h">
+      <Filter>Omega\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\Events\MouseEvent.h">
+      <Filter>Omega\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Omega\Log.h">
       <Filter>Omega</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Omega\Maths\Vector2.h">
+      <Filter>Omega\Maths</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
