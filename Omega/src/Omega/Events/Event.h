@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ompch.h"
 #include "Omega/Core.h"
 
 namespace Omega {

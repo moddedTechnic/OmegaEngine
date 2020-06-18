@@ -6,13 +6,14 @@
 
 namespace Omega {
 	using Maths::Vector2;
-	using std::string;
-	using std::stringstream;
 
 	class OMEGA_API MouseMovedEvent : public Event {
 	public:
 		MouseMovedEvent(float x, float y)
 			: m_Pos(x, y) {}
+
+		MouseMovedEvent(double x, double y)
+			: m_Pos((float) x, (float) y) {}
 
 		inline Vector2<float> GetPos() const { return m_Pos; }
 		inline float GetX() const { return m_Pos.GetX(); }
@@ -35,6 +36,9 @@ namespace Omega {
 	public:
 		MouseScrolledEvent(float xOff, float yOff)
 			: m_Offset(xOff, yOff) {}
+
+		MouseScrolledEvent(double xOff, double yOff)
+			: m_Offset((float) xOff, (float) yOff) {}
 
 		inline Vector2<float> GetOffset() const { return m_Offset; }
 		inline float GetXOffset() const { return m_Offset.GetX(); }
@@ -66,9 +70,9 @@ namespace Omega {
 		int m_Button;
 	};
 
-	class OMEGA_API MosueButtonPressedEvent : public MouseButtonEvent {
+	class OMEGA_API MouseButtonPressedEvent : public MouseButtonEvent {
 	public:
-		MosueButtonPressedEvent(int button)
+		MouseButtonPressedEvent(int button)
 			: MouseButtonEvent(button) {}
 
 		string ToString() const override {

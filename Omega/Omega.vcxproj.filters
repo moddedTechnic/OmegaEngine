@@ -41,6 +41,9 @@
       <Filter>Omega\Maths</Filter>
     </ClInclude>
     <ClInclude Include="src\ompch.h" />
+    <ClInclude Include="src\Omega\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Omega\Events.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Omega\Application.cpp">
@@ -50,5 +53,6 @@
       <Filter>Omega</Filter>
     </ClCompile>
     <ClCompile Include="src\ompch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

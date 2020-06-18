@@ -6,15 +6,21 @@ workspace "Omega"
 		"Dist"
 	}
 
-output_dir = "%{cfg.buildcfg}/%{cfg.system}/%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}/%{cfg.system}/%{cfg.architecture}"
+
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Omega/vendor/GLFW/include"
+
+include "Omega/vendor/GLFW"
 
 project "Omega"
 	location "Omega"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/bin/" .. output_dir .. "/%{prj.name}")
-	objdir ("bin/int/" .. output_dir .. "/%{prj.name}")
+	targetdir ("bin/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin/int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "ompch.h"
 	pchsource "Omega/src/ompch.cpp"
@@ -26,7 +32,13 @@ project "Omega"
 
 	includedirs {
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links {
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -40,7 +52,7 @@ project "Omega"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/bin/" .. output_dir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -60,8 +72,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/bin/" .. output_dir .. "/%{prj.name}")
-	objdir ("bin/int/" .. output_dir .. "/%{prj.name}")
+	targetdir ("bin/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin/int/" .. outputdir .. "/%{prj.name}")
 
 	files {
 		"%{prj.name}/src/**.h",
