@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Omega {
 
 	class OMEGA_API WindowResizeEvent : public Event {
@@ -20,8 +18,8 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(WINDOW_RESIZE);
-		EVENT_CLASS_CATEGORY(APPLICATION);
+		EVENT_CLASS_TYPE(WindowResize);
+		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 
 	private:
 		unsigned int m_Width, m_Height;
@@ -31,32 +29,32 @@ namespace Omega {
 	public:
 		WindowCloseEvent() {}
 
-		EVENT_CLASS_TYPE(WINDOW_CLOSE);
-		EVENT_CLASS_CATEGORY(APPLICATION);
+		EVENT_CLASS_TYPE(WindowClose);
+		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 	};
 
 	class OMEGA_API AppTickEvent : public Event {
 	public:
 		AppTickEvent() {}
 
-		EVENT_CLASS_TYPE(APP_TICK);
-		EVENT_CLASS_CATEGORY(APPLICATION);
+		EVENT_CLASS_TYPE(AppTick);
+		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 	};
 
 	class OMEGA_API AppUpdateEvent : public Event {
 	public:
 		AppUpdateEvent() {}
 
-		EVENT_CLASS_TYPE(APP_UPDATE);
-		EVENT_CLASS_CATEGORY(APPLICATION);
+		EVENT_CLASS_TYPE(AppUpdate);
+		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 	};
 
 	class OMEGA_API AppRenderEvent : public Event {
 	public:
 		AppRenderEvent() {}
 
-		EVENT_CLASS_TYPE(APP_RENDER);
-		EVENT_CLASS_CATEGORY(APPLICATION);
+		EVENT_CLASS_TYPE(AppRender);
+		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 	};
 
 }

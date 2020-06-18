@@ -40,6 +40,7 @@
     <ClInclude Include="src\Omega\Maths\Vector2.h">
       <Filter>Omega\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="src\ompch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Omega\Application.cpp">
@@ -48,5 +49,6 @@
     <ClCompile Include="src\Omega\Log.cpp">
       <Filter>Omega</Filter>
     </ClCompile>
+    <ClCompile Include="src\ompch.cpp" />
   </ItemGroup>
 </Project>

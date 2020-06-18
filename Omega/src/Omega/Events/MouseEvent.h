@@ -4,9 +4,10 @@
 
 #include "Omega/Maths/Vector2.h"
 
-
 namespace Omega {
 	using Maths::Vector2;
+	using std::string;
+	using std::stringstream;
 
 	class OMEGA_API MouseMovedEvent : public Event {
 	public:
@@ -23,8 +24,8 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(MOUSE_MOVED);
-		EVENT_CLASS_CATEGORY(MOUSE | INPUT);
+		EVENT_CLASS_TYPE(MouseMoved);
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
 	private:
 		Vector2<float> m_Pos;
@@ -45,8 +46,8 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(MOUSE_SCROLLED);
-		EVENT_CLASS_CATEGORY(MOUSE | INPUT);
+		EVENT_CLASS_TYPE(MouseScrolled);
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
 	private:
 		Vector2<float> m_Offset;
@@ -56,7 +57,7 @@ namespace Omega {
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
-		EVENT_CLASS_CATEGORY(MOUSE | INPUT);
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput);
 
 	protected:
 		MouseButtonEvent(int button)
@@ -76,7 +77,7 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(MOUSE_BUTTON_PRESSED);
+		EVENT_CLASS_TYPE(MouseButtonPressed);
 	};
 
 	class OMEGA_API MouseButtonReleasedEvent : public MouseButtonEvent {
@@ -90,7 +91,7 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(MOUSE_BUTTON_RELEASED);
+		EVENT_CLASS_TYPE(MouseButtonReleased);
 	};
 
 }

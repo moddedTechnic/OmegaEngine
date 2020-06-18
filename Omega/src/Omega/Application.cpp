@@ -1,3 +1,4 @@
+#include "ompch.h"
 #include "Application.h"
 
 #include "Events/ApplicationEvent.h"
@@ -11,10 +12,10 @@ namespace Omega {
 	void Application::Run() {
 		WindowResizeEvent e(1280, 720);
 
-		if (e.IsInCategory(EventCategory::APPLICATION)) {
+		if (e.IsInCategory(EventCategory::EventCategoryApplication)) {
 			OM_TRACE(e);
 		}
-		if (e.IsInCategory(EventCategory::INPUT)) {
+		if (e.IsInCategory(EventCategory::EventCategoryInput)) {
 			OM_TRACE(e);
 		}
 

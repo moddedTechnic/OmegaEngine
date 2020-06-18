@@ -2,15 +2,13 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Omega {
 
 	class OMEGA_API KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
-		EVENT_CLASS_CATEGORY(KEYBOARD | INPUT);
+		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput);
 
 	protected:
 		KeyEvent(int keycode)
@@ -32,7 +30,7 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KEY_PRESSED);
+		EVENT_CLASS_TYPE(KeyPressed);
 
 	private:
 		int m_RepeatCount;
@@ -49,7 +47,7 @@ namespace Omega {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(KEY_RELEASED);
+		EVENT_CLASS_TYPE(KeyReleased);
 	};
 
 }

@@ -16,10 +16,5 @@
 #define BIT(x) (1 << x)
 
 //Standard Library
-#include <string>
 using std::string;
-
-#include <functional>
-
-#include <sstream>
 using std::stringstream;
