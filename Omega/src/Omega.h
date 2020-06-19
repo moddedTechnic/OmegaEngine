@@ -6,6 +6,8 @@
 #include "Omega/Layer.h"
 #include "Omega/Log.h"
 
+#include "Omega/ImGui/ImGuiLayer.h"
+
 // Maths
 #include "Omega/Maths/Vector2.h"
 

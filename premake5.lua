@@ -11,8 +11,12 @@ outputdir = "%{cfg.buildcfg}/%{cfg.system}/%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Omega/vendor/GLFW/include"
+IncludeDir["Glad"] = "Omega/vendor/Glad/include"
+IncludeDir["ImGui"] = "Omega/vendor/imgui"
 
 include "Omega/vendor/GLFW"
+include "Omega/vendor/Glad"
+include "Omega/vendor/imgui"
 
 project "Omega"
 	location "Omega"
@@ -33,11 +37,15 @@ project "Omega"
 	includedirs {
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links {
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -48,7 +56,8 @@ project "Omega"
 
 		defines {
 			"OM_PLATFORM_WINDOWS",
-			"OM_BUILD_DLL"
+			"OM_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands {
@@ -85,7 +94,8 @@ project "Sandbox"
 
 	includedirs {
 		"Omega/vendor/spdlog/include",
-		"Omega/src"
+		"Omega/src",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links {

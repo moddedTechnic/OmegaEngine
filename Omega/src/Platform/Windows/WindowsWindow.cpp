@@ -3,6 +3,8 @@
 
 #include "Omega/Events.h"
 
+#include <glad/glad.h>
+
 namespace Omega {
 
 	static bool s_GLFWInitialized = false;
@@ -32,15 +34,15 @@ namespace Omega {
 
 		if (!s_GLFWInitialized) {
 			// TODO:glfwTerninate on system shutdown
-			int success = glfwInit();
-			OM_CORE_ASSERT(success, "Could not initialize GLFW");
+			OM_CORE_ASSERT(glfwInit(), "Could not initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		m_Window = glfwCreateWindow((int) props.Width, (int) props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		OM_CORE_ASSERT(gladLoadGLLoader((GLADloadproc)glfwGetProcAddress), "Failed to initialize Glad");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -86,6 +88,13 @@ namespace Omega {
 				default:
 					break;
 			}
+		});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode) {
+			GET_WINDOW_DATA(window);
+
+			KeyTypedEvent event(keycode);
+			data.EventCallback(event);
 		});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {

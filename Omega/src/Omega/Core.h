@@ -18,12 +18,12 @@
 	#define OM_CORE_ASSERT(x, ...) { if(!(x)) { OM_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak; } }
 
 #else
-	#define OM_ASSERT
-	#define OM_CORE_ASSERT
+	#define OM_ASSERT(x, ...) { if(!(x)) { OM_ERROR("Assertion Failed: {0}", __VA_ARGS__); exit(-1); } }
+	#define OM_CORE_ASSERT(x, ...) { if(!(x)) { OM_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); exit(-1); } }
 
 #endif
 
 
 #define BIT(x) (1 << (x))
 
-#define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
+#define OM_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

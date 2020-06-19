@@ -19,6 +19,7 @@ class Sandbox : public Omega::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Omega::ImGuiLayer());
 	}
 
 	~Sandbox() {}

@@ -50,4 +50,18 @@ namespace Omega {
 		EVENT_CLASS_TYPE(KeyReleased);
 	};
 
+	class OMEGA_API KeyTypedEvent : public KeyEvent {
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode) {}
+
+		string ToString() const override {
+			stringstream ss;
+			ss << "KeyTypedEvent: " << m_KeyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped);
+	};
+
 }
