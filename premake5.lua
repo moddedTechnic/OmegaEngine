@@ -16,9 +16,12 @@ IncludeDir["GLFW"] = "Omega/vendor/GLFW/include"
 IncludeDir["Glad"] = "Omega/vendor/Glad/include"
 IncludeDir["ImGui"] = "Omega/vendor/imgui"
 
-include "Omega/vendor/GLFW"
-include "Omega/vendor/Glad"
-include "Omega/vendor/imgui"
+group "Dependencies"
+	include "Omega/vendor/GLFW"
+	include "Omega/vendor/Glad"
+	include "Omega/vendor/imgui"
+
+group ""
 
 project "Omega"
 	location "Omega"
