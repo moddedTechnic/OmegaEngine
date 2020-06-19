@@ -5,6 +5,12 @@ namespace Omega::Maths {
 	template<typename T>
 	class OMEGA_API Vector2 {
 	public:
+		Vector2()
+			: m_X(NULL), m_Y(NULL) {}
+
+		Vector2(T x)
+			: m_X(x), m_Y(NULL) {}
+
 		Vector2(T x, T y)
 			: m_X(x), m_Y(y) {}
 

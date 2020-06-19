@@ -5,6 +5,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace Omega {
 
 	Application* Application::s_Instance = nullptr;
@@ -45,6 +47,9 @@ namespace Omega {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack) layer->OnUpdate();
+
+			auto pos = Input::GetMousePos();
+			OM_CORE_TRACE("{0}, {1}", pos.GetX(), pos.GetY());
 
 			m_Window->OnUpdate();
 		}
