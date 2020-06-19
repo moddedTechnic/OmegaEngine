@@ -6,6 +6,10 @@
 #include "Omega/Layer.h"
 #include "Omega/Log.h"
 
+#include "Omega/Input.h"
+#include "Omega/MouseButtonCodes.h"
+#include "Omega/KeyCodes.h"
+
 #include "Omega/ImGui/ImGuiLayer.h"
 
 // Maths

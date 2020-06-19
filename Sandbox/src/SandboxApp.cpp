@@ -6,12 +6,11 @@ public:
 		: Layer("Example") {}
 
 	void OnUpdate() override {
-		OM_INFO("ExampleLayer::Update");
+		if (Omega::Input::IsKeyPressed(OM_KEY_TAB))
+			OM_INFO("Tab key pressed");
 	}
 
-	void OnEvent(Omega::Event& event) override {
-		OM_TRACE("{0}", event);
-	}
+	void OnEvent(Omega::Event& event) override {}
 };
 
 

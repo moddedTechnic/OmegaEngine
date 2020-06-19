@@ -48,9 +48,6 @@ namespace Omega {
 
 			for (Layer* layer : m_LayerStack) layer->OnUpdate();
 
-			auto pos = Input::GetMousePos();
-			OM_CORE_TRACE("{0}, {1}", pos.GetX(), pos.GetY());
-
 			m_Window->OnUpdate();
 		}
 	}
