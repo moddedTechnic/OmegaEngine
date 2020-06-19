@@ -66,7 +66,7 @@ project "Omega"
 		}
 
 		postbuildcommands {
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
