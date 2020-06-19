@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Omega/vendor/GLFW/include"
 IncludeDir["Glad"] = "Omega/vendor/Glad/include"
 IncludeDir["ImGui"] = "Omega/vendor/imgui"
+IncludeDir["glm"] = "Omega/vendor/glm"
 
 group "Dependencies"
 	include "Omega/vendor/GLFW"
@@ -37,7 +38,9 @@ project "Omega"
 
 	files {
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs {
@@ -45,7 +48,8 @@ project "Omega"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
@@ -101,7 +105,8 @@ project "Sandbox"
 	includedirs {
 		"Omega/vendor/spdlog/include",
 		"Omega/src",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
