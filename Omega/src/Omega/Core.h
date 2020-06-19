@@ -12,6 +12,11 @@
 
 #endif // OM_PLATFORM_WINDOWS
 
+#ifdef OM_DEBUG
+	#define OM_ENABLE_ASSERTS
+#endif // OM_DEBUG
+
+
 
 #ifdef OM_ENABLE_ASSERTS
 	#define OM_ASSERT(x, ...) { if(!(x)) { OM_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak; } }
