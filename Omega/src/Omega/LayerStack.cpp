@@ -3,9 +3,7 @@
 
 namespace Omega {
 
-	LayerStack::LayerStack() {
-		m_LayerInsert = m_Layers.begin();
-	}
+	LayerStack::LayerStack() {}
 
 	LayerStack::~LayerStack() {
 		for (Layer* layer : m_Layers)
@@ -13,7 +11,7 @@ namespace Omega {
 	}
 
 	void LayerStack::PushLayer(Layer* layer) {
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		m_Layers.emplace(begin() + (m_LayerInsertIndex++), layer);
 	}
 
 	void LayerStack::PushOverlay(Layer* overlay) {
@@ -22,7 +20,7 @@ namespace Omega {
 
 	bool LayerStack::PopLayer(Layer* layer) {
 		if (PopOverlay(layer)) {
-			m_LayerInsert--;
+			m_LayerInsertIndex--;
 			return true;
 		}
 

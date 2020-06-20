@@ -105,6 +105,7 @@ project "Sandbox"
 	includedirs {
 		"Omega/vendor/spdlog/include",
 		"Omega/src",
+		"Omega/vendor",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
 	}

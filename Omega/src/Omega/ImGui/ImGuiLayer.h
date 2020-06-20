@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Omega/Layer.h"
-
-#include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
 #include "Omega/Events.h"
 
 namespace Omega {
@@ -12,23 +10,14 @@ namespace Omega {
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach();
-		void OnUpdate();
-		void OnEvent(Event& event);
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+
+		void Begin();
+		void End();
+		void OnImGuiRender() override;
 
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e);
-		bool OnMouseMovedEvent(MouseMovedEvent& e);
-		bool OnMouseScrolledEvent(MouseScrolledEvent& e);
-
-		bool OnKeyPressedEvent(KeyPressedEvent& e);
-		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
-		bool OnKeyTypedEvent(KeyTypedEvent& e);
-
-		bool OnWindowResizedPressedEvent(WindowResizeEvent& e);
-
 		float m_Time = 0.f;
 	};
 

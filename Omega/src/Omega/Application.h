@@ -4,8 +4,10 @@
 
 #include "Window.h"
 #include "Omega/LayerStack.h"
-#include "Events/Event.h"
+#include "Omega/Events/Event.h"
 #include "Omega/Events/ApplicationEvent.h"
+
+#include "Omega/ImGui/ImGuiLayer.h"
 
 namespace Omega {
 	
@@ -29,6 +31,7 @@ namespace Omega {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

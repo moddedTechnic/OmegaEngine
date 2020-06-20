@@ -22,7 +22,7 @@ namespace Omega {
 
 	private:
 		vector<Layer*> m_Layers;
-		iterator m_LayerInsert;
+		unsigned int m_LayerInsertIndex = 0;
  	};
 
 }
