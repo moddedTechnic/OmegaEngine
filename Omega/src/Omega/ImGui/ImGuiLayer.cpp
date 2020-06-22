@@ -62,7 +62,7 @@ namespace Omega {
         ImGuiIO& io = ImGui::GetIO();
         Application& app = Application::Get();
         Window& window = app.GetWindow();
-        io.DisplaySize = ImVec2(window.GetWidth(), window.GetHeight());
+        io.DisplaySize = ImVec2((float) window.GetWidth(), (float) window.GetHeight());
 
         // Rendering
         ImGui::Render();

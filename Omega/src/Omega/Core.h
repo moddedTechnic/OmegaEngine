@@ -1,11 +1,17 @@
 #pragma once
 
 #ifdef OM_PLATFORM_WINDOWS
-	#ifdef OM_BUILD_DLL
-		#define OMEGA_API __declspec(dllexport)
+	#if OM_DYNAMIC_LINK
+		#ifdef OM_BUILD_DLL
+			#define OMEGA_API __declspec(dllexport)
+		#else
+			#define OMEGA_API __declspec(dllimport)
+		#endif // OM_BUILD_DLL
+	
 	#else
-		#define OMEGA_API __declspec(dllimport)
-	#endif // OM_BUILD_DLL
+		#define OMEGA_API
+
+	#endif
 
 #else
 	#error Hazel only supports Windows
