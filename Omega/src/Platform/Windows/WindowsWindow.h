@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Omega/Window.h"
+#include "Omega/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -28,6 +29,7 @@ namespace Omega {
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData {
 			string Title;
