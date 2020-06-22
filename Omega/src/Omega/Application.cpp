@@ -20,6 +20,29 @@ namespace Omega {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
+
+		glGenVertexArrays(1, &m_VertexArray);
+		glBindVertexArray(m_VertexArray);
+
+		glGenBuffers(1, &m_VertexBuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
+
+		float vertices[3 * 3] = {
+			-.5f, -.5f, 0.f,
+			 .5f, -.5f, 0.f,
+			 .0f,  .5f, 0.f
+		};
+
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		glGenBuffers(1, &m_IndexBuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+
+		unsigned int indices[3] = { 0, 1, 2 };
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	}
 
 	Application::~Application() {}
@@ -44,10 +67,16 @@ namespace Omega {
 		}
 	}
 
+#define rgb(r, g, b) r / 255.f, g / 255.f, b / 255.f
+#define rgba(r, g, b, a) r / 255.f, g / 255.f, b / 255.f, a
+
 	void Application::Run() {
 		while (m_Running) {
-			glClearColor(.5, .5, .5, 1);
+			glClearColor(rgba(47, 54, 64, 1));
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			glBindVertexArray(m_VertexArray);
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack) layer->OnUpdate();
 

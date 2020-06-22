@@ -6,8 +6,8 @@ extern Omega::Application* Omega::CreateApplication();
 
 int main(int arg, char** argv) {
 	Omega::Log::Init();
-	OM_CORE_INFO("Initialised Log");
-	OM_INFO("Initialised Log");
+	OM_CORE_TRACE("Initialised Log");
+	OM_TRACE("Initialised Log");
 
 	auto app = Omega::CreateApplication();
 	app->Run();
