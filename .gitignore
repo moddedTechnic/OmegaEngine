@@ -446,3 +446,4 @@ tests/windows
 # Hazel-specific
 bin/
 **/*.vcxproj*
+**/*.ini
